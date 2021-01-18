@@ -2,8 +2,6 @@
 require_once 'users.php';
 require_once 'admin.php';
 
-$emailAdmins = ['pippo@gmail.com', 'paperino@gmail.com', 'pluto@gmail.com', 'topolino@gmail.com'];
-
 // Prova creazione primo utente senza attributi
 
 $firstUser = new User();
@@ -37,9 +35,14 @@ var_dump($firstAdmin);
 // Prova creazione secondo Admin con attributi
 
 $secondAdmin = new Admin('Paolo', 'Bianchi', 'pippo@gmail.com', 28);
-$secondAdmin->setEmail('pippo@gmail.com');
 
 var_dump($secondAdmin);
+
+// Prova creazione terzo admin
+
+$thirdAdmin = new Admin('Claudio', 'Verdi', 'paperino@gmail.com');
+
+var_dump($thirdAdmin);
 
 ?>
 
@@ -51,5 +54,27 @@ var_dump($secondAdmin);
   </head>
   <body>
 
+    <h1>La lista degli utenti che han completato la registrazione è la seguente:</h1>
+
+      <p><?php
+          echo $secondUser->getName() . " " . $secondUser->getLastname();
+        ?>
+      </p>
+      <p><?php
+          echo $thirdUser->getName() . " " . $thirdUser->getLastname();
+        ?>
+      </p>
+    <h1>La lista degli admin che han completato la registrazione è la seguente:</h1>
+
+      <p><?php
+          echo $secondAdmin->getName() . " " . $secondAdmin->getLastname() . " " .
+          $secondAdmin->getEmail();
+        ?>
+      </p>
+      <p><?php
+          echo $thirdAdmin->getName() . " " . $thirdAdmin->getLastname() . " " .
+          $thirdAdmin->getEmail();
+        ?>
+      </p>
   </body>
 </html>
